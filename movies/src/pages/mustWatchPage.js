@@ -7,8 +7,7 @@ import Spinner from '../components/spinner';
 import RemoveFromMustWatch from "../components/cardIcons/removeFromMustWatch";
 
 const MustWatchMoviesPage = () => {
-  const { mustwatch: movieIds } = useContext(MoviesContext);
-
+    const { mustWatch: movieIds } = useContext(MoviesContext);
   // Check if movieIds exists and is an array; if not, default to an empty array.
   const mustWatchMovieQueries = useQueries(
     (movieIds || []).map((movieId) => {

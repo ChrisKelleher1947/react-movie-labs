@@ -6,12 +6,13 @@ import MoviePage from "./pages/movieDetailsPage";
 import UpcomingPage from "./pages/upcomingPage";
 import FavoriteMoviesPage from "./pages/favoriteMoviesPage";
 import MovieReviewPage from "./pages/movieReviewPage";
+import MustWatchMoviesPage from "./pages/mustWatchPage";
 import SiteHeader from './components/siteHeader'
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from 'react-query/devtools';
 import MoviesContextProvider from "./contexts/moviesContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
-import MustWatchMoviesPage from "./pages/mustWatchPage";
+
 
 const queryClient = new QueryClient({
   defaultOptions: {
