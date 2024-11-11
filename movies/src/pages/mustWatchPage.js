@@ -3,47 +3,45 @@ import PageTemplate from "../components/templateMovieListPage";
 import { MoviesContext } from "../contexts/moviesContext";
 import { useQueries } from "react-query";
 import { getMovie } from "../api/tmdb-api";
-import Spinner from '../components/spinner'
+import Spinner from '../components/spinner';
 import RemoveFromMustWatch from "../components/cardIcons/removeFromMustWatch";
 
-
 const MustWatchMoviesPage = () => {
-  const {mustwatch: movieIds } = useContext(MoviesContext);
+  const { mustwatch: movieIds } = useContext(MoviesContext);
 
-  // Create an array of queries and run in parallel.
+  // Check if movieIds exists and is an array; if not, default to an empty array.
   const mustWatchMovieQueries = useQueries(
-    movieIds.map((movieId) => {
+    (movieIds || []).map((movieId) => {
       return {
         queryKey: ["movie", { id: movieId }],
         queryFn: getMovie,
       };
     })
   );
+
   // Check if any of the parallel queries is still loading.
-  const isLoading = mustWatchMovieQueries.find((m) => m.isLoading === true);
+  const isLoading = mustWatchMovieQueries.some((m) => m.isLoading);
 
   if (isLoading) {
     return <Spinner />;
   }
 
-  const movies = mustWatchMovieQueries.map((q) => {
-    q.data.genre_ids = q.data.genres.map(g => g.id)
-    return q.data
-  });
-
-  
+  // Filter out queries that didn’t return data successfully
+  const movies = mustWatchMovieQueries
+    .filter((q) => q.data)
+    .map((q) => {
+      // Ensure genres and genre_ids are defined
+      const genreIds = q.data.genres ? q.data.genres.map((g) => g.id) : [];
+      return { ...q.data, genre_ids: genreIds };
+    });
 
   return (
     <PageTemplate
       title="Must Watch Movies"
       movies={movies}
-      action={(movie) => {
-        return (
-          <>
-            <RemoveFromMustWatch movie={movie} />
-          </>
-        );
-      }}
+      action={(movie) => (
+        <RemoveFromMustWatch movie={movie} />
+      )}
     />
   );
 };
