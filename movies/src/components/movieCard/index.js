@@ -24,6 +24,7 @@ export default function MovieCard({ movie, action }) {
     movie.favorite = false
   }
 
+
   
 
   return (
