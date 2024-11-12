@@ -22,7 +22,7 @@ const MovieCastPage = () => {
     return <h1>{error.message}</h1>;
   }
 
-  const { cast } = data; // Extract the cast data from the API response
+  const { cast } = data; // Extract the cast data to use cast
 
   return (
     <>
