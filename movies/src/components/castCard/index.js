@@ -5,7 +5,6 @@ import CardMedia from "@mui/material/CardMedia";
 import CardHeader from "@mui/material/CardHeader";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid2";
-import Avatar from "@mui/material/Avatar";
 
 export default function CastCard({ actor }) {
   const { name, character, profile_path } = actor;
@@ -13,15 +12,7 @@ export default function CastCard({ actor }) {
   return (
     <Card>
       <CardHeader
-        avatar={
-          <Avatar
-            sx={{
-              backgroundColor: "primary.main",
-            }}
-            alt={name}
-            src={`https://image.tmdb.org/t/p/w500${profile_path}`}
-          />
-        }
+
         title={
           <Typography variant="h6" component="p">
             {name}
