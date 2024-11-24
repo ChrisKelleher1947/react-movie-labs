@@ -61,7 +61,7 @@ const App = () => {
     });
 
     
-     signOut(auth); 
+     signOut(auth);  //For test purposes
   }, []);
 
   return (

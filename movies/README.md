@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# Assignment 1 - ReactJS app.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Name: [Chris Kelleher (20101947)]
 
-## Available Scripts
+## Overview.
 
-In the project directory, you can run:
+This repository contains a ReactJS application for movie enthusiasts, allowing users to explore movies, manage favorites, write reviews, and discover upcoming films. It integrates Firebase for authentication and uses the TMDB API for movie data.
 
-### `npm start`
+### Features.
+ 
++ User Authentication: Firebase authentication for login
++ Must Watch List: Track movies you plan to watch using a "Must Watch" list, based on upcoming movies
++ Upcoming Movies: Browse a list of upcoming movies
++ Recommended Movies: View personalized recommendations based on a selected movie
++ Protected Routes: Restrict access to certain pages unless logged in
++ New Filtering Options: Filter movies based on their average vote rating, release year and original langauge
++ Cast: View the cast of a selected movie, with their character name, actor name and profile picture
++ Top Rated Movies: View the movies with the highest ratings on TMDB
++ Popular Movies: View the current most popular movies based on TMDB
++ Production Countries Tag: Previoulsy a visual error now displaying correctly
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Setup requirements.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+A google account is required to login to the app and view the functionality.
 
-### `npm test`
+## API endpoints.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
++ List of movies set to release soon: /movie/upcoming
++ List of popular movies: /movie/popular
++ List of top rated movies: /movie/topRated
++ List of movie recommendations: /movie/:id/recommendations
++ List of movie cast members (credits): /movie:id/cast 
 
-### `npm run build`
+## Routing.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
++ Public Routes:
++ /login - Login page
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
++ Authenticated Routes:
++ / - Home page displaying movies
++ /movies/favorites - Displays the user's favorite movies
++ /movies/:id - Displays details of a selected movie
++ /reviews/form - Allows users to add a review for a movie
++ /reviews/:id - Displays a specific movie review
++ /movies/upcoming - Displays a list of upcoming movies
++ /movies/mustWatch - Displays the selected must watch movies
++ /movies/popular - Displays a list of popular movies
++ /movies/topRated - Displays a list of the highest rates movies
++ /movies/:id/cast - Displays the cast for a selected movie
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Independent learning (If relevant).
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
++ Firebase Authentication: Integrated Firebase for user authentication.
++ Code references: src/index.js
++ Resource: Firebase Authentication Documentation, https://medium.com/@ogun.ergin35/authenticate-your-react-app-with-firebase-a-step-by-step-guide-c240d9d7e7b7#:~:text=Click%20the%20%E2%80%9CCreate%20a%20project,app%20in%20your%20React%20project.
